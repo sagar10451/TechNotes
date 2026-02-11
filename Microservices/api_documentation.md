@@ -1,17 +1,15 @@
-# 📘 API Documentation in This Project
-
-## 🏗️ Theory: Why API Documentation?
+## Theory: Why API Documentation?
 
 > **The Big Picture:** Documentation acts as the "Source of Truth" between different services and teams.
 
-### 🎯 Purpose
+### Purpose
 
 * **Contract Definition:** Defines what endpoints exist, what they accept, and what they return.
 * **Developer Experience:** Helps frontend developers, testers, and other teams understand how to use your APIs without reading code.
 * **Testing Interface:** Provides interactive UI to test APIs directly from the browser.
 * **Standardization:** Uses **OpenAPI** (formerly Swagger) specification—the industry standard for REST APIs.
 
-### 🚀 Benefits
+### Benefits
 
 * **Reduced Communication Overhead:** No need to explain APIs verbally or via emails.
 * **Faster Integration:** Other teams can integrate without waiting for manual documentation.
@@ -21,7 +19,7 @@
 
 ---
 
-## 🛠️ How It's Implemented in This Project
+## How It's Implemented in This Project
 
 ### 1. Dependencies (`pom.xml`)
 
@@ -78,7 +76,7 @@ Your controllers (like `OrderController.java`) are automatically documented by s
 * `@RequestBody` — Payload structure.
 * `@ResponseStatus` — Response codes.
 
-#### 🙈 How to Exclude an API
+#### How to Exclude an API
 
 If you need to hide sensitive endpoints from the documentation:
 
@@ -97,7 +95,7 @@ public String secretEndpoint() { ... }
 
 ---
 
-## 🔍 OpenAPI vs. Swagger UI
+## OpenAPI vs. Swagger UI
 
 It's important to understand the difference between the specification and the tool:
 
@@ -111,7 +109,7 @@ It's important to understand the difference between the specification and the to
 
 ---
 
-## 🚦 How to Access & Use
+## How to Access & Use
 
 For the **Order Service**, use the following local URLs:
 
