@@ -1,509 +1,549 @@
-# Database Concepts
+## **Database Concepts Overview**
 
-## Topics Covered
 1. Database
 2. DBMS
 3. Data Models
 4. RDBMS
 
-## 1. Database
-- Place to store structured data
-- Storing the related data like Employee ID, Employee Name, Employee Salary, Department, etc.
+---
 
-## 2. DBMS
-DBMS = Database Management System
+### **1. Database**
 
-- Software that stores the data in the database in an organized way, which makes it easier to create, retrieve, update the data.
+* A place to store **structured data**.
+* Used for storing related data such as **Employee ID, Employee Name, Employee Salary, Department**, etc.
 
-### Data Flow
-Application -> DBMS Software -> stores data -> Database
-Application <- DBMS Software (reads data from) <- Database
+### **2. DBMS (Database Management System)**
 
-
-### Examples of DBMS Software
-- MySQL
-- Oracle
-- MongoDB
-- Cassandra
-
-## 3. Data Models
-How related data is connected to each other and stored inside the database.
-
-### Types of Data Model
-1. Hierarchical model
-2. Network Model
-3. Entity-Relationship model
-4. Relational Model
-
-DBMS software can use any of the above data models to store data in the database.
-
-Most popular data model used by DBMS software is Relational Model, where data is stored in form of tables. Table contains rows and columns.
-
-## 4. RDBMS
-RDBMS = Relational DBMS
-
-This is also a software, but this software only follows the Relational Model to store the data. I.e all RDBMS software will store the data in the form of tables.
-
-### Examples of RDBMS
-- Oracle
-- PostgreSQL
-- DB2
-- MySQL
-
-## What is SQL?
-SQL is programming language for RDBMS software. (NOT DBMS only RDBMS)
-
-SQL = Structured Query Language
-
-### Operations Using SQL
-- Insert Data (store the data)
-- Retrieve Data
-- Updating data
-- Deleting data
-- And many more
+* **Definition:** Software that stores data in an organized way, making it easier to create, retrieve, and update the data.
+* **Data Flow:**
+* `Application` -> `DBMS Software` -> (stores data) -> `Database`
+* `Application` <- `DBMS Software` <- (reads data) <- `Database`
 
 
-____
-# Practice SQL
+* **Examples:** MySQL, Oracle, MongoDB, Cassandra.
 
-Practice SQL without installing any Software: https://www.w3schools.com/sql/trysql.asp?filename=trysql_asc
+---
 
-______
-# Difference Between Commands and Keywords in SQL
+### **3. Data Models**
 
-## Commands
-Actions that perform operations
+* Defines how related data is connected to each other and stored inside the database.
 
-- SELECT - retrieves data
-- INSERT - adds new data
-- UPDATE - modifies existing data
-- DELETE - removes data
-- CREATE - creates database objects
+**Types of Data Models:**
 
-## Keywords
-Reserved words used within commands
+1. **Hierarchical Model**
+2. **Network Model**
+3. **Entity-Relationship Model**
+4. **Relational Model**
 
-- FROM - specifies table
-- WHERE - filters results
-- AND, OR - logical operators
-- ORDER BY - sorts results
-- NULL - represents no value
+> **Note:** DBMS software can use any of the above models. The **Relational Model** is the most popular, where data is stored in **tables** consisting of **rows and columns**.
 
-## Example Showing Both
+---
+
+### **4. RDBMS (Relational DBMS)**
+
+* A specific type of software that strictly follows the **Relational Model**.
+* All RDBMS software stores data in the form of **tables**.
+* **Examples:** Oracle, PostgreSQL, DB2, MySQL.
+
+---
+
+### **What is SQL?**
+
+* **SQL (Structured Query Language):** The programming language used specifically for **RDBMS** software (not all DBMS).
+* **Capabilities of SQL:**
+* **Insert Data** (Store the data)
+* **Retrieve Data**
+* **Update Data**
+* **Delete Data**
+* and many more.
+
+
+---
+
+## **SQL Resources & Syntax Basics**
+
+### **Practice Tool**
+
+To practice SQL without installing any software, use the W3Schools editor:
+
+* **URL:** [W3Schools SQL Tryit Editor](https://www.w3schools.com/sql/trysql.asp?filename=trysql_asc)
+
+---
+
+### **Commands vs. Keywords in SQL**
+
+| Category | Definition | Examples |
+| --- | --- | --- |
+| **Commands** | **Actions** that perform operations on the data or structure. | `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE` |
+| **Keywords** | **Reserved words** used within commands to help construct the statement. | `FROM`, `WHERE`, `AND`, `OR`, `ORDER BY`, `NULL` |
+
+> **In short:** Commands tell SQL **what to do**, while keywords help **structure** how the operation is carried out.
+
+---
+
+### **Example Breakdown**
+
+Consider the following statement:
+`SELECT name, age FROM users WHERE age > 18 AND status IS NOT NULL ORDER BY name;`
+
+* **Command:** `SELECT`
+* **Keywords:** `FROM`, `WHERE`, `AND`, `IS`, `NOT`, `NULL`, `ORDER BY`
+
+---
+
+### **Detailed Keyword/Command List**
+
+**1. Primary Commands:**
+
+* **SELECT:** Retrieves data from the database.
+* **INSERT:** Adds new data.
+* **UPDATE:** Modifies existing data.
+* **DELETE:** Removes data.
+* **CREATE:** Creates database objects (like tables).
+
+**2. Essential Keywords:**
+
+* **FROM:** Specifies which table to look in.
+* **WHERE:** Filters results based on a condition.
+* **AND / OR:** Logical operators used to combine conditions.
+* **ORDER BY:** Sorts the resulting data.
+* **NULL:** Represents a missing or empty value.
+
+---
+
+## **The SELECT Command**
+
+### **Purpose**
+
+Retrieves data from database tables. It is the most commonly used command in SQL.
+
+### **Basic Syntax**
 
 ```sql
-SELECT name, age FROM users WHERE age > 18 AND status IS NOT NULL ORDER BY name;
-Command: SELECT
-
-Keywords: FROM, WHERE, AND, IS, NOT, NULL, ORDER BY
-
-In Short
-Commands tell SQL what to do, keywords help construct the statement.
-```
-_____
-
-SELECT Command
-
-Purpose
-Retrieves data from database tables.
-
-Basic Syntax
 SELECT column1, column2 FROM table_name;
 
-Copy
-sql
-Key Variations
-1. Select all columns:
+```
 
-SELECT * FROM Customers;
+---
 
-Copy
-sql
-2. Select specific columns:
+### **Key Variations**
 
-SELECT Name, Email FROM Customers;
+| Variation | Example Code | Description |
+| --- | --- | --- |
+| **Select All** | `SELECT * FROM Customers;` | Uses the asterisk (`*`) wildcard to fetch every column. |
+| **Specific Columns** | `SELECT Name, Email FROM Customers;` | Fetches only the data you actually need. |
+| **Filter (WHERE)** | `SELECT * FROM Customers WHERE Age > 25;` | Limits results to rows meeting a specific condition. |
+| **Unique (DISTINCT)** | `SELECT DISTINCT City FROM Customers;` | Removes duplicate values from the results. |
+| **Sort (ORDER BY)** | `SELECT * FROM Customers ORDER BY Name ASC;` | Sorts data alphabetically or numerically (`ASC` or `DESC`). |
+| **Restrict (LIMIT)** | `SELECT * FROM Customers LIMIT 10;` | Returns only the first 10 rows. |
+| **Aggregates** | `SELECT COUNT(*), AVG(Salary) FROM Employees;` | Performs calculations like count, average, or sum. |
+| **Group (GROUP BY)** | `SELECT City, COUNT(*) FROM Customers GROUP BY City;` | Groups rows that have the same values into summary rows. |
+| **Joins** | `SELECT Orders.OrderID, Customers.Name FROM Orders JOIN Customers ON Orders.CustomerID = Customers.CustomerID;` | Combines rows from two or more tables based on a related column. |
+| **Aliases (AS)** | `SELECT Name AS CustomerName FROM Customers;` | Renames a column or table temporarily for the result set. |
 
-Copy
-sql
-3. With WHERE (filter):
+---
 
-SELECT * FROM Customers WHERE Age > 25;
+### **Common Operators in WHERE**
 
-Copy
-sql
-4. With DISTINCT (unique values):
+* **Comparison:** `=`, `!=` (or `<>`), `>`, `<`, `>=`, `<=`
+* **Range & List:** `BETWEEN`, `IN`, `LIKE`, `IS NULL`
+* **Logical:** `AND`, `OR`, `NOT`
 
-SELECT DISTINCT City FROM Customers;
+---
 
-Copy
-sql
-5. With ORDER BY (sort):
+### **Execution Order**
 
-SELECT * FROM Customers ORDER BY Name ASC;
+It is important to note that SQL does not process clauses in the order they are written. The database follows this sequence:
 
-Copy
-sql
-6. With LIMIT (restrict rows):
+1. **FROM** (Identify the table)
+2. **WHERE** (Filter rows)
+3. **GROUP BY** (Aggregate data)
+4. **HAVING** (Filter grouped data)
+5. **SELECT** (Return the final columns/aliases)
+6. **ORDER BY** (Sort the results)
+7. **LIMIT** (Restrict the final count)
 
-SELECT * FROM Customers LIMIT 10;
+---
 
-Copy
-sql
-7. With aggregate functions:
+## **The DISTINCT Keyword**
 
-SELECT COUNT(*), AVG(Salary) FROM Employees;
+### **Purpose**
 
-Copy
-sql
-8. With GROUP BY:
+The `DISTINCT` keyword is used to remove duplicate rows from query results, ensuring that only unique values are returned.
 
-SELECT City, COUNT(*) FROM Customers GROUP BY City;
+---
 
-Copy
-sql
-9. With JOIN:
+### **Examples**
 
-SELECT Orders.OrderID, Customers.Name 
-FROM Orders 
-JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+**1. Without DISTINCT**
 
-Copy
-sql
-10. With aliases:
-
-SELECT Name AS CustomerName, Age AS CustomerAge FROM Customers;
-
-Copy
-sql
-Common Operators in WHERE
-=, !=, >, <, >=, <=
-
-BETWEEN, IN, LIKE, IS NULL
-
-AND, OR, NOT
-
-Execution Order
-FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
-____
-
-DISTINCT Keyword in SQL
-Purpose: Removes duplicate rows from query results.
-Examples:
-Without DISTINCT:
+```sql
 SELECT city FROM users;
 
-Result: 
-New York, London, New York, Paris, London (duplicates included)
+```
 
-With DISTINCT:
+* **Result:** `New York`, `London`, `New York`, `Paris`, `London` (duplicates included)
 
+**2. With DISTINCT**
+
+```sql
 SELECT DISTINCT city FROM users;
 
-Result: 
-New York, London, Paris (duplicates removed)
+```
 
-Multiple columns:
+* **Result:** `New York`, `London`, `Paris` (duplicates removed)
 
+---
+
+### **Advanced Usage**
+
+* **Multiple Columns:**
+```sql
 SELECT DISTINCT city, country FROM users;
 
-Returns unique combinations of city AND country.
-With COUNT:
+```
+
+
+* This returns unique **combinations** of city and country. If two rows have the same city but different countries, both will be shown.
+
+
+* **With COUNT (Aggregation):**
+```sql
 SELECT COUNT(DISTINCT city) FROM users;
 
-Counts unique cities only.
-Key Point: DISTINCT applies to the entire row, not individual columns.
-_______
+```
 
-SQL is not case sensitive
-Select Country, PostalCode From Customers; (mixed case)
-select country, postalcode from customers; (lower case)
-SELECT COUNTRY, POASTALCODE FROM CUSTOMERS; (upper case)
 
-SQL is case insensitive, i.e all the above commands will execute. 
-best practice: 
-SELECT Country, PostalCode FROM Customers;
-_______
+* This calculates the total number of unique cities in the table.
 
-Is it mandatory to end the SQL statements with semicolon symbol?
 
-Not always mandatory for single statements.
 
-but strongly recommended to Always use semicolon (;) - it's a good habit, ensures compatibility, and prevents errors when adding more statements.
-_______
-WHERE Clause:
+---
 
-Purpose
-Filters records based on specified conditions.
+### **Key Point**
 
-Syntax
+> **Important:** `DISTINCT` applies to the **entire row** specified in the SELECT clause, not just the first column following it.
+
+---
+
+## **SQL Case Sensitivity & Semicolons**
+
+### **1. Case Sensitivity**
+
+SQL is **case-insensitive**, meaning the database engine treats uppercase and lowercase letters the same for commands, table names, and column names.
+
+**The following three queries will execute exactly the same:**
+
+* **Mixed Case:** `Select Country, PostalCode From Customers;`
+* **Lower Case:** `select country, postalcode from customers;`
+* **Upper Case:** `SELECT COUNTRY, POSTALCODE FROM CUSTOMERS;`
+
+> **Best Practice:** > It is standard professional practice to write **SQL keywords in UPPERCASE** and **identifiers (table/column names) in PascalCase or lowercase**.
+> **Example:** `SELECT Country, PostalCode FROM Customers;`
+
+---
+
+### **2. The Semicolon ( ; )**
+
+**Is it mandatory?**
+
+* **For single statements:** Not always mandatory in many database systems (like MySQL or SQL Server).
+* **For multiple statements:** **Yes.** It is required to separate distinct commands sent in a single batch.
+
+**Why you should always use it:**
+
+* **Good Habit:** It clearly marks the end of a command.
+* **Compatibility:** Some database systems (like Oracle) or specific tools require it.
+* **Prevents Errors:** It ensures your code doesn't break when you add a second or third statement to your script.
+
+---
+## **The WHERE Clause**
+
+### **Purpose**
+
+The `WHERE` clause is used to filter records. it ensures that only the rows that fulfill a specified condition are returned.
+
+### **Syntax**
+
+```sql
 SELECT column1, column2 
 FROM table_name 
 WHERE condition;
 
-Copy
-sql
-Comparison Operators
-=       Equal to
-!=, <>  Not equal to
->       Greater than
-<       Less than
->=      Greater than or equal to
-<=      Less than or equal to
+```
 
-Copy
-Examples:
+---
 
-SELECT * FROM Employees WHERE Age > 30;
-SELECT * FROM Products WHERE Price <= 100;
-SELECT * FROM Customers WHERE City = 'London';
+### **Comparison Operators**
 
-Copy
-sql
-Logical Operators
-AND - All conditions must be true
+These operators are used to compare a column value against a specific value.
 
-SELECT * FROM Employees WHERE Age > 25 AND Salary > 50000;
+| Operator | Description |
+| --- | --- |
+| `=` | Equal to |
+| `!=` or `<>` | Not equal to |
+| `>` | Greater than |
+| `<` | Less than |
+| `>=` | Greater than or equal to |
+| `<=` | Less than or equal to |
 
-Copy
-sql
-OR - At least one condition must be true
+**Examples:**
 
-SELECT * FROM Customers WHERE City = 'London' OR City = 'Paris';
+* `SELECT * FROM Employees WHERE Age > 30;`
+* `SELECT * FROM Products WHERE Price <= 100;`
+* `SELECT * FROM Customers WHERE City = 'London';`
 
-Copy
-sql
-NOT - Negates a condition
+---
 
-SELECT * FROM Products WHERE NOT Price > 100;
+### **Logical Operators**
 
-Copy
-sql
-Special Operators
-BETWEEN - Range of values
+Used to combine multiple conditions in a single `WHERE` clause.
 
-SELECT * FROM Products WHERE Price BETWEEN 10 AND 50;
+* **AND:** All conditions must be true.
+* `SELECT * FROM Employees WHERE Age > 25 AND Salary > 50000;`
 
-Copy
-sql
-IN - Multiple possible values
 
-SELECT * FROM Customers WHERE City IN ('London', 'Paris', 'Berlin');
+* **OR:** At least one condition must be true.
+* `SELECT * FROM Customers WHERE City = 'London' OR City = 'Paris';`
 
-Copy
-sql
-LIKE - Pattern matching
 
-SELECT * FROM Customers WHERE Name LIKE 'J%';  -- Starts with J
-SELECT * FROM Customers WHERE Name LIKE '%son'; -- Ends with son
-SELECT * FROM Customers WHERE Name LIKE '%an%'; -- Contains an
+* **NOT:** Negates a condition.
+* `SELECT * FROM Products WHERE NOT Price > 100;`
 
-Copy
-sql
-IS NULL / IS NOT NULL - Check for null values
 
-SELECT * FROM Customers WHERE Email IS NULL;
-SELECT * FROM Customers WHERE Phone IS NOT NULL;
 
-Copy
-sql
-Combining Conditions
+---
+
+### **Special Operators**
+
+* **BETWEEN:** Filters values within a specific range (inclusive).
+* `SELECT * FROM Products WHERE Price BETWEEN 10 AND 50;`
+
+
+* **IN:** Specifies multiple possible values for a column.
+* `SELECT * FROM Customers WHERE City IN ('London', 'Paris', 'Berlin');`
+
+
+* **LIKE:** Searches for a specified pattern in a column.
+* `'J%'` → Starts with J
+* `'%son'` → Ends with son
+* `'%an%'` → Contains "an"
+
+
+* **IS NULL / IS NOT NULL:** Checks for empty (null) or non-empty values.
+* `SELECT * FROM Customers WHERE Email IS NULL;`
+
+
+
+---
+
+### **Combining Conditions**
+
+You can use parentheses to group conditions and control the order of evaluation.
+
+```sql
 SELECT * FROM Employees 
 WHERE (Age > 25 AND City = 'London') 
    OR (Salary > 60000 AND Department = 'IT');
 
-Copy
-sql
-Key Points
-WHERE filters rows BEFORE grouping
+```
 
-Use with SELECT, UPDATE, DELETE
+---
 
-Text values need single quotes: 'London'
+### **Key Points**
 
-Numbers don't need quotes: 100
-_______
+* **Filtering Order:** `WHERE` filters rows **BEFORE** any grouping (`GROUP BY`) occurs.
+* **Versatility:** Can be used with `SELECT`, `UPDATE`, and `DELETE` statements.
+* **Data Types:** * **Text values** must be enclosed in single quotes: `'London'`.
+* **Numeric values** do not need quotes: `100`.
 
-BETWEEN Operator 
-Purpose
-Selects values within a specified range (inclusive of both endpoints).
 
-Syntax
+
+---
+
+## **The BETWEEN Operator**
+
+### **Purpose**
+
+Selects values within a specified range. This operator is highly efficient and makes your SQL queries much easier to read.
+
+### **Syntax**
+
+```sql
 SELECT column_name 
 FROM table_name 
 WHERE column_name BETWEEN value1 AND value2;
 
-Copy
-sql
-Key Points
-Inclusive: Includes both boundary values (value1 and value2)
+```
 
-Works with numbers, text, and dates
+---
 
-Equivalent to: column >= value1 AND column <= value2
+### **Key Points**
 
-Examples
-1. Numbers:
+* **Inclusive:** It includes both boundary values (`value1` and `value2`).
+* **Versatile:** It works seamlessly with **numbers**, **text**, and **dates**.
+* **Logic:** It is functionally equivalent to using `column >= value1 AND column <= value2`.
 
+---
+
+### **Examples**
+
+#### **1. Numbers**
+
+```sql
 SELECT * FROM Products WHERE Price BETWEEN 10 AND 50;
 
-Copy
-sql
-Returns products with price from 10 to 50 (including 10 and 50).
+```
 
-2. Dates:
+* **Result:** Returns products with prices from 10 to 50 (including exactly 10 and 50).
 
+#### **2. Dates**
+
+```sql
 SELECT * FROM Orders 
 WHERE OrderDate BETWEEN '2024-01-01' AND '2024-12-31';
 
-Copy
-sql
-Returns orders from entire year 2024.
+```
 
-3. Text (alphabetical order):
+* **Result:** Returns all orders placed during the entire year of 2024.
 
+#### **3. Text (Alphabetical Order)**
+
+```sql
 SELECT * FROM Customers 
 WHERE Name BETWEEN 'A' AND 'M';
 
-Copy
-sql
-Returns names starting with A through M.
+```
 
-NOT BETWEEN
-Excludes values in the range:
+* **Result:** Returns names starting with the letters A through M.
 
+---
+
+### **NOT BETWEEN**
+
+If you want to find values **outside** of a specific range, use `NOT BETWEEN`:
+
+```sql
 SELECT * FROM Products WHERE Price NOT BETWEEN 10 AND 50;
 
-Copy
-sql
-Returns products with price < 10 or > 50.
+```
 
-Comparison
-Using BETWEEN:
+* **Logic:** Returns products where the price is either **less than 10** or **greater than 50**.
 
-WHERE Age BETWEEN 25 AND 35
+---
 
-Copy
-sql
-Equivalent to:
+### **Comparison & Readability**
 
-WHERE Age >= 25 AND Age <= 35
+| Method | Syntax |
+| --- | --- |
+| **Using BETWEEN** | `WHERE Age BETWEEN 25 AND 35` |
+| **Using Comparison** | `WHERE Age >= 25 AND Age <= 35` |
 
-Copy
-sql
-Common Use Cases
-Price ranges: BETWEEN 100 AND 500
+> **Pro Tip:** Always prefer `BETWEEN` for ranges. It is "cleaner" and reduces the risk of logic errors (like forgetting to include the `=` sign in `>=`).
 
-Date ranges: BETWEEN '2024-01-01' AND '2024-12-31'
+---
 
-Age groups: BETWEEN 18 AND 65
+### **Common Use Cases**
 
-Score ranges: BETWEEN 70 AND 100
+* **Price ranges:** `BETWEEN 100 AND 500`
+* **Date ranges:** `BETWEEN '2024-01-01' AND '2024-06-30'`
+* **Age groups:** `BETWEEN 18 AND 65`
+* **Score ranges:** `BETWEEN 70 AND 100`
 
-Remember: BETWEEN is cleaner and more readable than using >= and <= operators.
-______
-ORDER BY Clause
-Purpose
-Sorts query results in ascending or descending order.
+---
 
-Syntax
+## **The ORDER BY Clause**
+
+### **Purpose**
+
+Sorts query results in either ascending or descending order. This is essential for organizing data into meaningful lists, such as leaderboards or chronological records.
+
+### **Syntax**
+
+```sql
 SELECT column1, column2 
 FROM table_name 
 ORDER BY column1 [ASC|DESC];
 
-Copy
-sql
-ASC vs DESC
-ASC (Ascending) - Default, smallest to largest
+```
 
-Numbers: 1, 2, 3, 4...
+---
 
-Text: A, B, C, D...
+### **ASC vs DESC**
 
-Dates: oldest to newest
+| Type | Order | Data Behavior |
+| --- | --- | --- |
+| **ASC** (Ascending) | Smallest to Largest | **Numbers:** 1, 2, 3... <br>
 
-DESC (Descending) - Largest to smallest
+<br> **Text:** A, B, C... <br>
 
-Numbers: 10, 9, 8, 7...
+<br> **Dates:** Oldest to Newest |
+| **DESC** (Descending) | Largest to Smallest | **Numbers:** 10, 9, 8... <br>
 
-Text: Z, Y, X, W...
+<br> **Text:** Z, Y, X... <br>
 
-Dates: newest to oldest
+<br> **Dates:** Newest to Oldest |
 
-Examples
-1. Single column (ascending - default):
+> **Note:** `ASC` is the default setting. If you do not specify an order, SQL will automatically sort in ascending order.
 
-SELECT * FROM Employees ORDER BY Salary;
-SELECT * FROM Employees ORDER BY Salary ASC;  -- Same as above
+---
 
-Copy
-sql
-2. Single column (descending):
+### **Key Examples**
 
-SELECT * FROM Employees ORDER BY Salary DESC;
+**1. Single Column Sorting**
 
-Copy
-sql
-3. Multiple columns:
+* `SELECT * FROM Employees ORDER BY Salary;` (Default Ascending)
+* `SELECT * FROM Employees ORDER BY Salary DESC;` (High to Low)
 
+**2. Multiple Columns**
+
+```sql
 SELECT * FROM Employees 
 ORDER BY Department ASC, Salary DESC;
 
-Copy
-sql
-First sorts by Department (A-Z), then within each department sorts by Salary (high to low).
+```
 
-4. By column position:
+* **Result:** First sorts by **Department** (A-Z). If multiple employees are in the same department, it then sorts those employees by **Salary** (High to Low).
 
-SELECT Name, Age, Salary FROM Employees ORDER BY 3 DESC;
+**3. By Column Position**
 
-Copy
-sql
-Sorts by 3rd column (Salary) in descending order.
+* `SELECT Name, Age, Salary FROM Employees ORDER BY 3 DESC;`
+* **Result:** Sorts by the 3rd column listed in the `SELECT` statement (`Salary`).
 
-5. With WHERE:
+---
 
+### **Advanced Use Cases**
+
+* **Text Sorting:**
+* `SELECT * FROM Customers ORDER BY Name ASC;` (A to Z)
+
+
+* **Date Sorting:**
+* `SELECT * FROM Orders ORDER BY OrderDate DESC;` (Newest first)
+
+
+* **Combined with WHERE:**
+```sql
 SELECT * FROM Products 
 WHERE Price > 100 
 ORDER BY Price DESC;
 
-Copy
-sql
-6. Text sorting:
+```
 
-SELECT * FROM Customers ORDER BY Name ASC;  -- A to Z
-SELECT * FROM Customers ORDER BY Name DESC; -- Z to A
 
-Copy
-sql
-7. Date sorting:
 
-SELECT * FROM Orders ORDER BY OrderDate DESC;  -- Newest first
-SELECT * FROM Orders ORDER BY OrderDate ASC;   -- Oldest first
+---
 
-Copy
-sql
-Multiple Column Example
-SELECT * FROM Students 
-ORDER BY Grade DESC, Name ASC;
+### **Key Points to Remember**
 
-Copy
-sql
-Result: Highest grades first, within same grade alphabetically by name.
+* **Execution Order:** `ORDER BY` is executed **last** (after `WHERE`, `GROUP BY`, and `HAVING`).
+* **Flexibility:** You can sort by columns that are **not** included in your `SELECT` list.
+* **NULLs:** Handling of `NULL` values varies by database, but they typically appear first in `ASC` and last in `DESC`.
 
-Key Points
-ASC is default (can be omitted)
+### **Common Practical Applications**
 
-Always executed last (after WHERE, GROUP BY, HAVING)
+* **Top Earners:** `ORDER BY Salary DESC LIMIT 10`
+* **Alphabetical Rosters:** `ORDER BY Name ASC`
+* **Leaderboards:** `ORDER BY Score DESC`
 
-Can sort by columns not in SELECT list
-
-NULL values: typically appear first in ASC, last in DESC (database-dependent)
-
-Common Use Cases
-Top earners: ORDER BY Salary DESC LIMIT 10
-
-Alphabetical list: ORDER BY Name ASC
-
-Recent orders: ORDER BY OrderDate DESC
-
-Leaderboard: ORDER BY Score DESC
+---
