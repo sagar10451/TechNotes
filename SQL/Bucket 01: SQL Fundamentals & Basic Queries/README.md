@@ -92,7 +92,7 @@ SQL is **whitespace-independent**. You can write a query in one long line or bre
 * **Clarity:** Long strings of code are hard to read and debug.
 * **Structure:** Separating clauses (SELECT, FROM, WHERE) makes the logic "pop" visually.
 
----
+
 
 **Example Transformation:**
 
@@ -179,7 +179,7 @@ SELECT * FROM TableName;
 
 ```
 
----
+
 
 ### **2. Essential Clauses**
 
@@ -193,7 +193,7 @@ A `SELECT` statement usually follows this order:
 | **`ORDER BY`** | Sort results | `ORDER BY Name ASC` |
 | **`LIMIT`** | Restrict row count | `LIMIT 5` |
 
----
+
 
 ### **3. Key Features**
 
@@ -234,7 +234,7 @@ SELECT CustomerName AS "Client Name" FROM Customers;
 
 
 
----
+
 
 ### **2. Table Aliases**
 
@@ -257,7 +257,7 @@ WHERE o.CustomerID = c.CustomerID;
 
 
 
----
+
 
 ### **3. Key Rules**
 
@@ -283,7 +283,7 @@ SELECT DISTINCT Column1 FROM TableName;
 
 ```
 
----
+
 
 ### **2. Key Behaviors**
 
@@ -297,7 +297,7 @@ SELECT DISTINCT Column1 FROM TableName;
 
 * **NULL Values:** `DISTINCT` treats `NULL` as a unique value. If multiple rows have `NULL` in that column, only one `NULL` will be returned.
 
----
+
 
 ### **3. Difference: SELECT vs. SELECT DISTINCT**
 
