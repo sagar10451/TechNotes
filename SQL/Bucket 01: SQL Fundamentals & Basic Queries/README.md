@@ -329,7 +329,7 @@ LIMIT Number;
 
 ```
 
----
+
 
 ### **2. Key Use Cases**
 
@@ -340,7 +340,6 @@ LIMIT Number;
 
 * **Pagination:** Used by websites to show "Page 1, 2, 3" by combining `LIMIT` with `OFFSET`.
 
----
 
 ### **3. The OFFSET Extension**
 
@@ -348,7 +347,6 @@ If you want to skip a specific number of rows before starting to return results:
 
 * **Syntax:** `LIMIT 5 OFFSET 10;` (Skips the first 10 rows and returns the next 5).
 
----
 
 ### **4. Database Variations**
 
