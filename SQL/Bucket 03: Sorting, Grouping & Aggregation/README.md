@@ -257,7 +257,7 @@ Think of it like a funnel:
 Use the acronym: **S**ome **F**ish **W**iggle **G**ently **H**iding **O**ut **L**ate.
 (**S**elect, **F**rom, **W**here, **G**roup By, **H**aving, **O**rder By, **L**imit).
 
-
+---
 
 <h1 style="color:red">6. Arithmetic Operators</h1>
 
