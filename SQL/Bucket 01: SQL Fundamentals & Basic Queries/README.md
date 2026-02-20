@@ -3,23 +3,22 @@
 
 ### 1. Database (DB)
 
-A structured collection of data stored and accessed electronically. Think of it as the **digital filing cabinet**.
-
-* **Purpose:** To store, retrieve, and manage information efficiently.
-* **Key Property:** Data is organized so that it can be easily managed and updated.
+Place to store **structured data** so that it is easy to retrieve, manage, update efficiently.
 
 ### 2. DBMS (Database Management System)
 
-The **software** that interacts with users, applications, and the database itself to capture and analyze data.
+ **Software** that store data in the database in organised way which makes it easier to retrieve, update, etc.
 
 * **Functions:** Data security, backup, integrity, and multi-user access control.
 * **Examples:** MySQL, PostgreSQL, Oracle, MongoDB.
 
 ### 3. Data Models
 
-A conceptual framework that defines how data is structured, stored, and manipulated.
+How related data is stored in database. 
 
-* **Relational Model:** Data in tables (Rows/Columns). Most common.
+There are 4 types of Data Models
+
+* **Relational Model:** Data stored in tables (Rows/Columns). Most common.
 * **Hierarchical Model:** Tree-like structure (Parent-Child).
 * **Network Model:** Graph-like structure (Many-to-Many).
 * **Object-Oriented:** Data represented as objects (like in coding).
@@ -39,7 +38,7 @@ The standard language used to communicate with an RDBMS.
 
 * **Not a programming language:** It is a **declarative** language (you tell the DB *what* you want, not *how* to get it).
 * **Main Categories:**
-* **DDL (Definition):** `CREATE`, `DROP`, `ALTER` (Structure).
+* **DDL (Definition):** `CREATE`, `DROP`, `ALTER` (Structure of table).
 * **DML (Manipulation):** `INSERT`, `UPDATE`, `DELETE` (Data).
 * **DQL (Query):** `SELECT` (Retrieval).
 * **DCL (Control):** `GRANT`, `REVOKE` (Permissions).
@@ -57,7 +56,7 @@ Example of Interchangeable Syntax: All three of these will execute identically:
 
 The "Gold Standard" (Best Practice)
 To make your code readable and maintainable, use PascalCase for identifiers and UPPERCASE for keywords:
-SELECT Country, PostalCode FROM Customers;
+**SELECT Country, PostalCode FROM Customers;**
 Why follow this?
 * Readability: Keywords stand out immediately from table names.
 * Consistency: Makes debugging much faster in large scripts.
@@ -194,21 +193,6 @@ A `SELECT` statement usually follows this order:
 | **`LIMIT`** | Restrict row count | `LIMIT 5` |
 
 
-
-### **3. Key Features**
-
-* **Aliases (`AS`):** Rename a column in the output for better readability.
-* `SELECT CustomerName AS Client FROM Customers;`
-
-
-* **Distinct (`DISTINCT`):** Remove duplicate values from the result.
-* `SELECT DISTINCT Country FROM Customers;`
-
-
-* **Calculations:** You can perform math directly in the select line.
-* `SELECT Price * 1.10 FROM Products;`
-
-
 ---
 
 <h1 style="color:red">7. Aliases for Table column names (AS keyword)</h1>
@@ -231,7 +215,12 @@ SELECT ColumnName AS AliasName FROM TableName;
 SELECT CustomerName AS "Client Name" FROM Customers;
 
 ```
+**OR**
 
+```sql
+SELECT CustomerName AS [Client Name] FROM Customers;
+
+```
 
 
 
