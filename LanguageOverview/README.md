@@ -1,5 +1,5 @@
-| ![Feature](https://img.shields.io/badge/Property-grey?style=for-the-badge) | ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) | ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) | ![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black) | ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) |
+| Feature | Java | JavaScript | Python | C | C++ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| ![Types](https://img.shields.io/badge/Data_Types-444?style=flat-square) | Static | Dynamic | Dynamic | Static | Static |
-| ![Paradigm](https://img.shields.io/badge/Paradigm-444?style=flat-square) | Pure OOP | Prototype OOP | Multi | Procedural | Multi (OOP) |
-| ![Memory](https://img.shields.io/badge/Memory-444?style=flat-square) | Automatic | Automatic | Automatic | Manual | Manual |
+| **Data Types** | Static (int, String) | Dynamic (let, const) | Dynamic (no declaration) | Static (int, char) | Static (int, string) |
+| **Paradigm** | Pure OOP | Prototype-based OOP | Multi-paradigm | Procedural | Multi-paradigm (OOP) |
+| **Memory** | Automatic (GC) | Automatic (GC) | Automatic (GC) | Manual (malloc) | Manual (new/delete) |
