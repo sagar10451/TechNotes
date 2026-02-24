@@ -1,5 +1,9 @@
+<div align="left">
+
 | ![Feature](https://img.shields.io/badge/Property-grey?style=for-the-badge) | ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) | ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) | ![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black) | ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| ![Types](https://img.shields.io/badge/Data_Types-444?style=flat-square) | Static | Dynamic | Dynamic | Static | Static |
-| ![Paradigm](https://img.shields.io/badge/Paradigm-444?style=flat-square) | Pure OOP | Prototype OOP | Multi | Procedural | Multi (OOP) |
-| ![Memory](https://img.shields.io/badge/Memory-444?style=flat-square) | Automatic | Automatic | Automatic | Manual | Manual |
+| **Data Types** <img width="200" height="1"> | Static | Dynamic | Dynamic | Static | Static |
+| **Paradigm** | Pure OOP | Prototype | Multi | Procedural | Multi (OOP) |
+| **Memory** | Auto | Auto | Auto | Manual | Manual |
+
+</div>
