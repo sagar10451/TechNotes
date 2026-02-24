@@ -43,6 +43,8 @@ You can combine multiple filters using:
 * **Text/Strings:** Must be enclosed in single quotes (e.g., `'France'`).
 * **Numbers:** Should **not** be in quotes (e.g., `100`).
 
+* **NOTE:** `We can use WHERE clause with UPDATE and DELETE statements.`
+
 ---
 <h1 style="color:red">2. Using Relational Operators in WHERE clause condition</h1>
 
@@ -355,5 +357,6 @@ WHERE Discount LIKE '10!%' ESCAPE '!';
 * **Best Practice:** Always define your escape character explicitly (like the example above) to make your code work on any database system.
 
 ---
+
 
 
