@@ -49,43 +49,7 @@ You can combine multiple filters using:
 * **NOTE:** `We can use WHERE clause with UPDATE and DELETE statements.`
 
 ---
-<h1 style="color:red">2. Using Relational Operators in WHERE clause condition</h1>
-
-Relational operators (also called comparison operators) allow you to compare a column value against a specific value or another column.
-
-### **1. The Operators**
-
-| Operator | Meaning | Example |
-| --- | --- | --- |
-| **`=`** | Equal to | `WHERE Age = 25` |
-| **`>`** | Greater than | `WHERE Price > 100` |
-| **`<`** | Less than | `WHERE Stock < 10` |
-| **`>=`** | Greater than or equal to | `WHERE Rating >= 4.5` |
-| **`<=`** | Less than or equal to | `WHERE Quantity <= 5` |
-| **`<>`** or **`!=`** | Not equal to | `WHERE Status <> 'Retired'` |
-
-
-
-### **2. Key Rules**
-
-* **Data Types:** * **Numbers:** Use directly (`WHERE Salary > 50000`).
-* **Strings:** Use single quotes (`WHERE City = 'Paris'`).
-* **Dates:** Use single quotes in standard format (`WHERE JoinDate > '2023-01-01'`).
-
-
-* **Nulls:** Relational operators **do not work** with `NULL`. To check for empty values, you must use `IS NULL` or `IS NOT NULL` instead of `= NULL`.
-
-
-
-### **3. Logical Combination**
-
-You can use these operators alongside **AND** / **OR** to create complex filters:
-
-> `SELECT * FROM Products WHERE Price >= 50 AND Category = 'Electronics';`
-
-
----
-<h1 style="color:red">3. Using Logical Operators(AND, OR, NOT)</h1>
+<h1 style="color:red">2. Using Logical Operators(AND, OR, NOT)</h1>
 
 Logical operators are used to combine multiple conditions in a `WHERE` clause to narrow down search results.
 
@@ -360,6 +324,7 @@ WHERE Discount LIKE '10!%' ESCAPE '!';
 * **Best Practice:** Always define your escape character explicitly (like the example above) to make your code work on any database system.
 
 ---
+
 
 
 
