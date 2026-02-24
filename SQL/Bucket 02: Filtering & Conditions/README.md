@@ -38,13 +38,14 @@ You can combine multiple filters using:
 * **`OR`**: Displays a record if **any** condition is true.
 * **`NOT`**: Displays a record if the condition is **not** true.
 
+> `SELECT * FROM Products WHERE Price >= 50 AND Category = 'Electronics';`
+
 ### **4. Important Note: Quotes**
 
 * **Text/Strings:** Must be enclosed in single quotes (e.g., `'France'`).
 * **Numbers:** Should **not** be in quotes (e.g., `100`).
 * **Dates:** Use single quotes in standard format (WHERE JoinDate > '2023-01-01').
-* **Nulls:** Relational operators do not work with NULL. To check for empty values, you must use IS NULL or IS NOT NULL instead of = NULL.
-
+* **Nulls:** Relational operators do not work with NULL. To check for empty values, you must use `IS NULL` or `IS NOT NULL` instead of `= NULL`.
 * **NOTE:** `We can use WHERE clause with UPDATE and DELETE statements.`
 
 ---
@@ -359,6 +360,7 @@ WHERE Discount LIKE '10!%' ESCAPE '!';
 * **Best Practice:** Always define your escape character explicitly (like the example above) to make your code work on any database system.
 
 ---
+
 
 
 
