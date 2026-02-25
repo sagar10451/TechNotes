@@ -70,3 +70,79 @@ When a JVM instance is created, it allocates memory based on specific parameters
 * **Deadlocks:** Two or more threads waiting for each other indefinitely.
 * **Race Conditions:** Inconsistent results when multiple threads modify the same data at once.
 * **Complexity:** Testing and debugging multi-threaded code is significantly harder than single-threaded code.
+
+
+Video-39:
+
+Your notes are excellent and cover the core mechanics of Java threading very well. I have refined some of the technical nuances—specifically the difference between **Blocked** and **Waiting** states and how the **Monitor Lock** behaves at the object level.
+
+---
+
+## **Ways to Create a Thread**
+
+There are two primary ways to define a thread in Java. While both work, they serve different architectural purposes.
+
+### **1. Using the `Runnable` Interface (Preferred)**
+
+* **Why:** Java only supports **single inheritance**. If your class already extends another class (e.g., `BaseService`), it cannot extend `Thread`. Implementing `Runnable` keeps your inheritance "slot" open.
+* **Decoupling:** It separates the **task** (the `run()` logic) from the **runner** (the `Thread` object).
+
+**Execution Steps:**
+
+1. Implement `Runnable` and override `run()`.
+2. Pass the `Runnable` instance to a `Thread` constructor.
+3. Call `start()`.
+
+```java
+// Using Lambda (Modern approach)
+Runnable task = () -> System.out.println("Running in: " + Thread.currentThread().getName());
+Thread th = new Thread(task);
+th.start();
+
+```
+
+### **2. Extending the `Thread` Class**
+
+* **Mechanism:** Since your class *is* a `Thread`, you can call `start()` directly on your object.
+* **Downside:** It ties your code strictly to the Thread hierarchy and is generally considered less flexible in production environments.
+
+---
+
+## **Thread Life Cycle (States)**
+
+1. **New:** Thread object created but `start()` not yet called.
+2. **Runnable:** The thread is ready to run and waiting for the OS thread scheduler to give it CPU time.
+3. **Running:** The CPU is actively executing the thread's `run()` method.
+4. **Blocked:** The thread is waiting to acquire a **Monitor Lock** that is currently held by another thread.
+5. **Waiting:** The thread waits indefinitely for another thread to perform a specific action (e.g., `object.wait()` requires `object.notify()`).
+6. **Timed Waiting:** The thread waits for a specific period (e.g., `Thread.sleep(1000)` or `wait(1000)`).
+7. **Terminated:** The thread has finished execution or was stopped.
+
+> **Clarification on I/O:** When a thread performs a "Blocking I/O" operation (like reading a large file), it technically enters a state where it's waiting for the OS, but in the JVM, it often remains in the **Runnable** state while waiting for the resource.
+
+---
+
+## **Monitor Locks & Synchronization**
+
+### **The Concept of "One Lock per Object"**
+
+Every object in Java has a built-in **Monitor Lock** (or Intrinsic Lock).
+
+* **Synchronized Method:** If a method is marked `synchronized`, a thread must acquire the lock of that **specific object instance** before it can execute the method.
+* **The "Wait" Rule:** If Thread A is executing a synchronized method, Thread B cannot enter *any* synchronized method on that same object because the lock is already taken.
+* **Static Synchronization:** If a method is `static synchronized`, the lock is held on the **Class object**, not the instance.
+
+### **Lock Release Behavior**
+
+| State | Releases Monitor Lock? |
+| --- | --- |
+| **`wait()`** | **Yes.** It must release the lock so other threads can enter and eventually call `notify()`. |
+| **`Thread.sleep()`** | **No.** It keeps the lock while sleeping, which can lead to efficiency issues. |
+| **Blocked** | **N/A.** The thread hasn't acquired the lock yet, so it has nothing to release. |
+
+### **Summary of Synchronization**
+
+* **Synchronized Block:** More granular. You can lock on a specific object (`synchronized(this) { ... }`) or a private lock object. This is usually preferred over synchronized methods to reduce the "critical section" size.
+* **Goal:** To prevent **Race Conditions** by ensuring only one thread can access the critical section of code at a time.
+
+---
