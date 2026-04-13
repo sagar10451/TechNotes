@@ -31,6 +31,12 @@ class Solution {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println(s.findDuplicate(nums)); // 2
+    }
 }
 ```
 
@@ -58,6 +64,12 @@ class Solution {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println(s.findDuplicate(nums)); // 2
+    }
 }
 ```
 
@@ -84,6 +96,12 @@ class Solution {
         }
         return -1;
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println(s.findDuplicate(nums)); // 2
+    }
 }
 ```
 
@@ -109,6 +127,12 @@ class Solution {
             nums[ind] = -nums[ind];
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println(s.findDuplicate(nums)); // 2
     }
 }
 ```
@@ -148,6 +172,12 @@ class Solution {
             fast = nums[fast];
         }
         return fast;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println(s.findDuplicate(nums)); // 2
     }
 }
 ```
